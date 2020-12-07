@@ -1,18 +1,16 @@
 package com.academy.telesens.Lesson3_4;
 
-
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class MethodReturnsArrayInt {
+public class MethodReturnsMaxElementOfArray {
     public static void main(String[] args) {
 
-        System.out.println(Arrays.toString(ReturnsIntArray()));
+        System.out.println(ReturnsMaxElement());
+
     }
 
-
-    public static int[] ReturnsIntArray (){
-
+    public  static int ReturnsMaxElement (){
         System.out.println("Введите размерность массива: ");
         Scanner scanner = new Scanner(System.in);
         int count1 = scanner.nextInt();
@@ -22,8 +20,16 @@ public class MethodReturnsArrayInt {
             System.out.println(String.format("Введите %dй элемент массива: ", i+1));
             array[i] = scanner.nextInt();
         }
+        System.out.println("Вы ввели следующий массив: ");
+        System.out.println(Arrays.toString(array));
 
-       return array;
+        int maxElement=0;
+        for (int j=0; j<array.length; j++){
+            if (array[j] > maxElement){
+                maxElement = array[j];
+            }
+        }
+        return maxElement;
     }
 
 }
