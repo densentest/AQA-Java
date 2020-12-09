@@ -70,6 +70,7 @@ public class StringsDemo {
         String demoString = "One, Two, Three";
         String[] partsOfDemoString = demoString.split(",");
         String tmp = Arrays.toString(partsOfDemoString);
+        System.out.println(tmp);
         String joined = tmp
                 .replaceAll("\\[", "")
                 .replaceAll("\\]", "");
