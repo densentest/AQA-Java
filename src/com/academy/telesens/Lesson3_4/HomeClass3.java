@@ -14,12 +14,11 @@ public class HomeClass3 {
         String string1 = scanner.nextLine();
         System.out.println("Вы ввели следующую строку: " + string1);
 
-        System.out.println("Проверим наличие подстроки java в введенной строке!");
-        System.out.println();
+        System.out.println("\nПроверим наличие подстроки java в введенной строке!");
 
-
-        for (int i = 0; i < string1.length(); i++){
+        for (int i = 0; i < string1.length(); i++) {
             int k = string1.indexOf("java");
+            if (k >= 0) {
                 String substringJava = string1.substring(k, k + 4);
                 if (substringJava.equals("java")) {
                     System.out.println("Подстрока " + substringJava + " найдена в строке");
@@ -27,16 +26,22 @@ public class HomeClass3 {
 
                 }
 
+            }
 
         }
+        int countsubstring = 0;
+        char[] string1ToCharArray = string1.toCharArray();
 
-        String[] arrayOfJava = string1.split("java");
-        int javaCount = arrayOfJava.length;
-        System.out.println(String.format("Подстрока 'java' встречается в строке '%s', %d раз(а)", string1, javaCount));
+          for (int i=0; i < string1.length(); i++){
+            if ( string1ToCharArray[i] == 'j' && string1ToCharArray[i+1] == 'a' &&
+            string1ToCharArray[i+2] == 'v' && string1ToCharArray[i+3] == 'a'){
+                countsubstring++;
+            }
 
-        //не работает если ввести следующую строку "javaksksks java   javasaa" или просто "java"
-        // в других кейсах работает
-        //может завтра еще додумаю(
+        }
+        System.out.println(String.format("Подстрока 'java' встречается в строке '%s', %d раз(а)",
+                string1, countsubstring));
+
 
     }
 }
