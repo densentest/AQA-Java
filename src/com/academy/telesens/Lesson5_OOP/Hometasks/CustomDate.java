@@ -1,7 +1,5 @@
 package com.academy.telesens.Lesson5_OOP.Hometasks;
 
-import java.util.Scanner;
-
 public class CustomDate {
 
     private int day;
@@ -20,30 +18,15 @@ public class CustomDate {
     }
 
     public void setDay(Integer day) {
-
-//        if (day > 31 || day <= 0) {
-//            System.out.println("День не может быть " + month );
-//        } else {
         this.day = day;
-//        }
     }
 
     public void setMonth(Integer month) {
-//        if (month > 12 || month <= 0) {
-//            System.out.println("Месяц не может быть " + day );
-//        } else {
         this.month = month;
-//        }
     }
 
     public void setYear(Integer year) {
-
-//        if (year <= 0) {
-//            System.out.println("Год не может быть " + day);
-//        } else {
         this.year = year;
-//        }
-
     }
 
     public int getDay() {
@@ -63,21 +46,37 @@ public class CustomDate {
 
     }
 
-    public static boolean validate(int day, int month, int year) {
-
-        Boolean t = true;
-
-        if (day > 31 || day < 1) {
-            t = false;
-        } else if (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11)) {
-            t = false;
-        } else if (day >= 1 && month > 12) {
-            t = false;
-        } else if (year < 1) {
-            t = false;
+    private static boolean isLeapYear(int year) {
+        if ((year % 4) == 0) {
+            return true;
         }
 
-        return t;
+        return false;
+    }
+
+    public static boolean validate(int day, int month, int year) {
+
+
+        if (day > 31 || day < 1) {
+            return false;
+        }
+
+        if (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11)) {
+            return false;
+        }
+
+        if (month > 12) {
+            return false;
+        }
+        if (year < 1) {
+            return false;
+        }
+        if (month == 2 && day > 29 && isLeapYear(year)) {
+            return false;
+        }
+        if (month == 2 && day > 28 && !isLeapYear(year)) {
+            return false;
+        } else return true;
     }
 
 
