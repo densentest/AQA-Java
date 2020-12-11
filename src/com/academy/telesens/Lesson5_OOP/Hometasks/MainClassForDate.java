@@ -4,21 +4,24 @@ import java.util.Scanner;
 
 public class MainClassForDate {
     public static void main(String[] args) {
-        CustomDate fulldate = new CustomDate();
+        CustomDate fullDate = new CustomDate();
         Scanner scanner = new Scanner(System.in);
 
 
         System.out.println("Введите день: ");
-        fulldate.setDay(scanner.nextInt());
+        fullDate.setDay(scanner.nextInt());
 
         System.out.println("Введите месяц: ");
-        fulldate.setMonth(scanner.nextInt());
+        fullDate.setMonth(scanner.nextInt());
 
         System.out.println("Введите год: ");
-        fulldate.setYear(scanner.nextInt());
+        fullDate.setYear(scanner.nextInt());
 
-        String finalDate = fulldate.getFormattedDate();
+        String finalDate = fullDate.getFormattedDate();
         System.out.println(finalDate);
+
+
+        System.out.println(fullDate.validate(fullDate.getDay(), fullDate.getMonth(), fullDate.getYear()));
 
     }
 }
