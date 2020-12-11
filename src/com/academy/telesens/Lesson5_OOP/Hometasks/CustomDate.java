@@ -73,7 +73,7 @@ public class CustomDate {
             return false;
         }
 
-        if (month > 12) {
+        if (month > 12 || month < 1) {
             return false;
         }
         if (year < 1) {
