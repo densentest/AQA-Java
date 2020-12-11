@@ -54,6 +54,14 @@ public class CustomDate {
         return false;
     }
 
+
+    private static boolean monthDoesntHave31Day(int month) {
+        if (month == 2 || month == 4 || month == 6 || month == 9 || month == 11) {
+            return true;
+        }
+        return false;
+    }
+
     public static boolean validate(int day, int month, int year) {
 
 
@@ -61,7 +69,7 @@ public class CustomDate {
             return false;
         }
 
-        if (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11)) {
+        if (day == 31 && monthDoesntHave31Day(month)) {
             return false;
         }
 

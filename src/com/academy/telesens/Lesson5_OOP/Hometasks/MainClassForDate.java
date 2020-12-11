@@ -21,7 +21,6 @@ public class MainClassForDate {
         System.out.println(finalDate);
 
 
-
         System.out.println(fullDate.validate(fullDate.getDay(), fullDate.getMonth(), fullDate.getYear()));
 
     }
