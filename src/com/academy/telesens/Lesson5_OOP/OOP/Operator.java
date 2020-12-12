@@ -1,5 +1,7 @@
 package com.academy.telesens.Lesson5_OOP.OOP;
 
+import java.util.Objects;
+
 public class Operator {
 
     private String name;
@@ -28,5 +30,24 @@ public class Operator {
         return address;
     }
 
+    @Override
+    public String toString() {
+        return "Operator{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Operator operator = (Operator) o;
+        return name.equals(operator.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }

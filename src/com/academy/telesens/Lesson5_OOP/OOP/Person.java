@@ -1,11 +1,13 @@
 package com.academy.telesens.Lesson5_OOP.OOP;
 
+import java.util.Objects;
+
 public class Person {
 
-    private String firstName;
-    private String lastName;
-    private Integer age;
-    private Character gender;
+    protected String firstName;
+    protected String lastName;
+    protected Integer age;
+    protected Character gender;
 
 
     public Person(String firstName, String lastName, Integer age, Character gender) {
@@ -52,7 +54,20 @@ public class Person {
     }
 
     public String getProfile(){
-        return String.format("First name: %s\n Last name: %s\n Age: %s\n Gender: %s",
+        return String.format(" First name: %s\n Last name: %s\n Age: %s\n Gender: %s\n",
                 firstName, lastName, age, gender);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return firstName.equals(person.firstName) && lastName.equals(person.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
     }
 }
