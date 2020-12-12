@@ -2,8 +2,8 @@ package com.academy.telesens.Lesson5_OOP.OOP;
 
 public class Operator {
 
-    String name;
-    String address;
+    private String name;
+    private String address;
 
     public Operator(String name, String address) {
         this.name = name;
