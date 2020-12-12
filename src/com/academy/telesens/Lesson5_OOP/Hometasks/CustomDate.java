@@ -42,7 +42,7 @@ public class CustomDate {
     }
 
     public String getFormattedDate() {
-        return String.format("%d.%d.%d", day, month, year);
+        return String.format("%02d.%02d.%d", day, month, year);
 
     }
 
