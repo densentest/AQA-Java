@@ -1,5 +1,7 @@
 package com.academy.telesens.Lesson5_OOP.Hometasks;
 
+import java.util.Objects;
+
 public class CustomDate {
 
     private int day;
@@ -46,7 +48,7 @@ public class CustomDate {
 
     }
 
-    private static boolean isLeapYear(int year) {
+    protected static boolean isLeapYear(int year) {
         if ((year % 400) == 0) {
             return true;
         }
@@ -59,14 +61,14 @@ public class CustomDate {
     }
 
 
-    private static boolean monthDoesntHave31Day(int month) {
+    protected static boolean monthDoesntHave31Day(int month) {
         if (month == 2 || month == 4 || month == 6 || month == 9 || month == 11) {
             return true;
         }
         return false;
     }
 
-    public static boolean validate(int day, int month, int year) {
+    public static boolean validateDate(int day, int month, int year) {
 
 
         if (day > 31 || day < 1) {
@@ -91,6 +93,26 @@ public class CustomDate {
         } else return true;
     }
 
+    @Override
+    public String toString() {
+        return "CustomDate{" +
+                "day=" + day +
+                ", month=" + month +
+                ", year=" + year +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomDate date = (CustomDate) o;
+        return day == date.day && month == date.month && year == date.year;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(day, month, year);
+    }
 }
 
