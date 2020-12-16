@@ -8,6 +8,7 @@ public class CustomDateTime extends CustomDate {
     private int hour;
     private int minute;
     private int second;
+    private int dateFormat;
 
     public CustomDateTime() {
     }
@@ -43,12 +44,28 @@ public class CustomDateTime extends CustomDate {
         this.second = second;
     }
 
+    public int getDateFormat() {
+        return dateFormat;
+    }
+
+    public void setDateFormat(int dateFormat) {
+        this.dateFormat = dateFormat;
+    }
+
     @Override
     public String getFormattedDate() {
         if (validateBothDateAndTime()) {
             return String.format("Вы ввели коректную дату: %02d.%02d.%d %02d:%02d:%02d", getDay(), getMonth(), getYear(), hour, minute, second);
         }
-        return String.format("Вы ввели некоректную дату: %02d.%02d.%d %02d:%02d:%02d", getDay(), getMonth(), getYear(), hour, minute, second );
+        return String.format("Вы ввели некоректную дату: %02d.%02d.%d %02d:%02d:%02d", getDay(), getMonth(), getYear(), hour, minute, second);
+    }
+
+
+    public boolean dateFormatValueIs12() {
+        if (dateFormat == 24) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -85,6 +102,51 @@ public class CustomDateTime extends CustomDate {
             return true;
         }
         return false;
+    }
+
+    public String getFormattedDateBasedOnDateFormat() {
+        if (validateBothDateAndTime() && dateFormatValueIs12()) {
+            if (hour > 12) {
+                this.hour = hour - 12;
+                return String.format("Вы ввели коректную дату: %02d.%02d.%d %d:%02d:%02d PM",
+                        getDay(), getMonth(), getYear(), hour, minute, second);
+            }
+            if (hour < 12) {
+                return String.format("Вы ввели коректную дату: %02d.%02d.%d %d:%02d:%02d AM",
+                        getDay(), getMonth(), getYear(), hour, minute, second);
+            }
+            if (hour == 12) {
+                return String.format("Вы ввели коректную дату: %02d.%02d.%d %d:%02d:%02d PM",
+                        getDay(), getMonth(), getYear(), hour, minute, second);
+            }
+
+        }
+
+        if (validateBothDateAndTime() && !dateFormatValueIs12()) {
+            return String.format("Вы ввели коректную дату: %02d.%02d.%d %02d:%02d:%02d",
+                    getDay(), getMonth(), getYear(), hour, minute, second);
+        }
+
+        if (!validateBothDateAndTime() && dateFormatValueIs12()) {
+            if (hour > 12) {
+                this.hour = hour - 12;
+                return String.format("Вы ввели некоректную дату или время: %02d.%02d.%d %d:%02d:%02d PM",
+                        getDay(), getMonth(), getYear(), hour, minute, second);
+            }
+            if (hour < 12) {
+                return String.format("Вы ввели некоректную дату или время: %02d.%02d.%d %d:%02d:%02d AM",
+                        getDay(), getMonth(), getYear(), hour, minute, second);
+            }
+            if (hour == 12) {
+                return String.format("Вы ввели некоректную дату или время: %02d.%02d.%d %d:%02d:%02d PM",
+                        getDay(), getMonth(), getYear(), hour, minute, second);
+            }
+
+        }
+
+        return String.format("Вы ввели некоректную дату или время: %02d.%02d.%d %02d:%02d:%02d", getDay(), getMonth(), getYear(), hour, minute, second);
+
+
     }
 
 

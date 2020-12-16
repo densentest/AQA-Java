@@ -28,7 +28,10 @@ public class MainForCustomDateTime {
         System.out.println("Введите секунду: ");
         fullDate.setSecond(scanner.nextInt());
 
-        String finalDate = fullDate.getFormattedDate();
+        System.out.println("Введите формат для отображения времени. 12 или 24");
+        fullDate.setDateFormat(scanner.nextInt());
+
+        String finalDate = fullDate.getFormattedDateBasedOnDateFormat();
         System.out.println(finalDate);
 
     }
