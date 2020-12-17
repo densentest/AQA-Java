@@ -1,14 +1,16 @@
 package com.academy.telesens.Lesson5_OOP.OOP;
 
+import com.academy.telesens.Lesson7_Polimorfizm.Gender;
+
 public class DemoForInheritance {
     public static void main(String[] args) {
         Operator operator = new Operator("Kyivstar", "Kyiv");
-        Subscriber subscriber = new Subscriber("Den", "Sen", 28, 'm', "0681007722", operator);
+        Subscriber subscriber = new Subscriber("Den", "Sen", 28, Gender.MALE, "0681007722", operator);
 //        subscriber.setFirstName("Den");
-        String profile = subscriber.getProfile();
+        //String profile = subscriber.getProfile();
 //        System.out.println(profile);
 //        System.out.println(subscriber.getPhoneNumber());
-        System.out.println(profile);
+       // System.out.println(profile);
 
         Subscriber subscriber2 = new Subscriber();
         subscriber2.setFirstName("Dasha");

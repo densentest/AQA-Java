@@ -1,5 +1,7 @@
 package com.academy.telesens.Lesson5_OOP.OOP;
 
+import com.academy.telesens.Lesson7_Polimorfizm.Gender;
+
 import java.util.Objects;
 
 public class Person {
@@ -7,10 +9,10 @@ public class Person {
     protected String firstName;
     protected String lastName;
     protected Integer age;
-    protected Character gender;
+    protected Gender gender;
 
 
-    public Person(String firstName, String lastName, Integer age, Character gender) {
+    public Person(String firstName, String lastName, Integer age, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -33,7 +35,7 @@ public class Person {
         return lastName;
     }
 
-    public Character getGender() {
+    public Gender getGender() {
         return gender;
     }
 
@@ -49,7 +51,7 @@ public class Person {
         this.age = age;
     }
 
-    public void setGender(Character gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

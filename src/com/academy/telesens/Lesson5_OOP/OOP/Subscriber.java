@@ -1,5 +1,7 @@
 package com.academy.telesens.Lesson5_OOP.OOP;
 
+import com.academy.telesens.Lesson7_Polimorfizm.Gender;
+
 public class Subscriber extends Person {
     private String phoneNumber;
     private Operator operator;
@@ -29,7 +31,7 @@ public class Subscriber extends Person {
             String firstName,
             String lastName,
             Integer age,
-            Character gender,
+            Gender gender,
             String phoneNumber,
             Operator operator) {
         super(firstName, lastName, age, gender); // конструктор базового класса должен быть вызван первым
@@ -44,7 +46,7 @@ public class Subscriber extends Person {
 //                firstName, lastName, age, gender, phoneNumber, operator.getName());
 //    }
         return  super.getProfile() + String.format(" Phone number: %s\n Operator: %s",
-                firstName, lastName, age, gender, phoneNumber, operator.getName());
+                firstName, lastName, age, gender, phoneNumber, operator.getName()); //удалил operator.getName()
     }
 
     //методы with
