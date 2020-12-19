@@ -2,10 +2,10 @@ package com.academy.telesens.lesson6_abstraction;
 
 public class Demo {
     public static void main(String[] args) {
-        ButtonForComponent buttonForComponent = new ButtonForComponent();
-        Label label = new Label();
-        RoundButton roundButton = new RoundButton();
-        CheckBox checkBox = new CheckBox();
+        ButtonForComponent buttonForComponent = new ButtonForComponent("Login");
+        Label label = new Label("label");
+        RoundButton roundButton = new RoundButton("login");
+        CheckBox checkBox = new CheckBox("checkbox");
 
         System.out.println("**********************");
         buttonForComponent.draw();

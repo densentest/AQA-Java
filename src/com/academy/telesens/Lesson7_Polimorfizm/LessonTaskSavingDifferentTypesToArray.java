@@ -7,10 +7,10 @@ public class LessonTaskSavingDifferentTypesToArray {
     public static void main(String[] args) {
 
 
-        Label label = new Label();
-        ButtonForComponent button = new ButtonForComponent();
-        CheckBox checkBox = new CheckBox();
-        RoundButton roundButton = new RoundButton();
+        Label label = new Label("label");
+        ButtonForComponent button = new ButtonForComponent("login");
+        CheckBox checkBox = new CheckBox("checbox");
+        RoundButton roundButton = new RoundButton("round button");
 
         Component[] array = {label, button, checkBox, roundButton};
 

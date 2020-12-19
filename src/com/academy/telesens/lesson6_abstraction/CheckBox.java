@@ -3,6 +3,10 @@ package com.academy.telesens.lesson6_abstraction;
 public class CheckBox extends ButtonForComponent{
     protected boolean checked;
 
+    public CheckBox(String login) {
+        super(login);
+    }
+
     @Override
     public void draw() {
         System.out.println("Checkbox: draw");
