@@ -21,7 +21,7 @@
             System.out.println(finalDate);
 
             //  System.out.println(fullDate);
-            System.out.println(new CustomDate(fullDate.getDay(), fullDate.getMonth(), fullDate.getYear()));
+            System.out.println(new CustomDate(fullDate.getDay(), fullDate.getMonth(), fullDate.getYear()).getFormattedDate());
 
         }
     }

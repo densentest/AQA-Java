@@ -1,6 +1,7 @@
 package com.academy.telesens.lesson6_abstraction.HomeTask;
 
 import com.academy.telesens.Lesson5_OOP.Hometasks.CustomDate;
+import com.academy.telesens.Lesson9_Exceptions.HomeTask.IllegalDateException;
 
 import java.util.Objects;
 
@@ -13,12 +14,29 @@ public class CustomDateTime extends CustomDate {
     public CustomDateTime() {
     }
 
-    public CustomDateTime(int day, int year, int month, int hour, int minute, int second) {
+    public CustomDateTime(int day, int year, int month, int hour, int minute, int second) throws IllegalDateException {
         super(day, month, year);
         this.hour = hour;
         this.minute = minute;
         this.second = second;
     }
+
+    public CustomDateTime (int hour, int minute, int second) throws IllegalDateException {
+        if (hour > 23 || hour < 0) {
+            throw new IllegalDateException("час неверный");
+        }
+
+        if (minute > 59 || minute < 0) {
+            throw new IllegalDateException("минута неверная");
+        }
+        if (second > 59 || second < 0) {
+            throw new IllegalDateException("секунда неверная");
+        }
+        this.hour = hour;
+        this.minute = minute;
+        this.second = second;
+    }
+
 
     public int getHour() {
         return hour;
@@ -50,6 +68,9 @@ public class CustomDateTime extends CustomDate {
 
     public void setDateFormat(int dateFormat) {
         this.dateFormat = dateFormat;
+    }
+    public String getFormatedTime(){
+        return String.format("Вы ввели время: %02d:%02d:%02d",  hour, minute, second);
     }
 
     @Override

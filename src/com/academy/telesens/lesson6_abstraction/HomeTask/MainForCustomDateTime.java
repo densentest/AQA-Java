@@ -9,7 +9,6 @@ public class MainForCustomDateTime {
         CustomDateTime fullDate = new CustomDateTime();
         Scanner scanner = new Scanner(System.in);
 
-
         System.out.println("Введите день: ");
         fullDate.setDay(scanner.nextInt());
 
