@@ -43,12 +43,13 @@ public class ListFirst {
         }
         System.out.println(list.contains("Andry"));
 
-        for (int l = 0; l < list.size(); l++) {
-            if (list.get(l) != "Helen") {
-                list.remove(l);
-            }
-        }
-        System.out.println(list);
+//        for (int l = 0; l < list.size(); l++) {
+//            if ( list.get(l) != "Kate"){
+//                list.remove(l);
+//            }
+//        }
+//        System.out.println(list);
     }
+
 }
 
