@@ -4,8 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class DemoForHomeTask {
     public static void main(String[] args) {
@@ -18,16 +17,18 @@ public class DemoForHomeTask {
 
         List<String> maleNamesList = new ArrayList<>();
         List<String> maleSurnameList = new ArrayList<>();
+        Map<String, String> maleAndSurnameList = new HashMap<>();
+        Random random = new Random();
 
         try {
             BufferedReader readMaleName = new BufferedReader(new FileReader(maleNames));
             BufferedReader readMaleSurname = new BufferedReader(new FileReader(maleSurnames));
             String line;
             String line1;
-            while ((line = readMaleName.readLine()) != null){
+            while ((line = readMaleName.readLine()) != null) {
                 maleNamesList.add(line);
             }
-            while ((line1 = readMaleSurname.readLine()) != null){
+            while ((line1 = readMaleSurname.readLine()) != null) {
                 maleSurnameList.add(line1);
             }
             readMaleName.close();
@@ -40,7 +41,11 @@ public class DemoForHomeTask {
         System.out.println(maleNamesList);
         System.out.println("-----------");
         System.out.println(maleSurnameList);
+        System.out.println("-----------");
 
-
+        for (int i=0; i<maleNamesList.size(); i++){
+            maleAndSurnameList.put(maleNamesList.get(random.nextInt(maleNamesList.size())), maleSurnameList.get(random.nextInt(maleSurnameList.size())));
+        }
+        System.out.println(maleAndSurnameList);
     }
 }
