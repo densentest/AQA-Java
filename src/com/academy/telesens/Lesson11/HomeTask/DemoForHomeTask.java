@@ -1,9 +1,6 @@
 package com.academy.telesens.Lesson11.HomeTask;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class DemoForHomeTask {
@@ -14,6 +11,9 @@ public class DemoForHomeTask {
 
         String femaleNames = "C:\\Users\\denys.sennikov\\Downloads\\dataForAQA\\женские имена.txt";
         String femaleSurnames = "C:\\Users\\denys.sennikov\\Downloads\\dataForAQA\\женские фамилии.txt";
+
+        String subscribers = "C:\\Users\\denys.sennikov\\Downloads\\dataForAQA\\subscribers.txt";
+
 
         List<String> maleNamesList = new ArrayList<>();
         List<String> maleSurnameList = new ArrayList<>();
@@ -43,9 +43,31 @@ public class DemoForHomeTask {
         System.out.println(maleSurnameList);
         System.out.println("-----------");
 
-        for (int i=0; i<maleNamesList.size(); i++){
-            maleAndSurnameList.put(maleNamesList.get(random.nextInt(maleNamesList.size())), maleSurnameList.get(random.nextInt(maleSurnameList.size())));
+//        for (int i=0; i<maleNamesList.size(); i++){
+//            maleAndSurnameList.put(maleNamesList.get(random.nextInt(maleNamesList.size())), maleSurnameList.get(random.nextInt(maleSurnameList.size())));
+//
+//        }
+//        System.out.println(maleAndSurnameList);
+
+
+        try {
+        BufferedReader brMaleNames = new BufferedReader(new FileReader(maleNames));
+        BufferedReader brMaleSurnames = new BufferedReader(new FileReader(maleSurnames));
+        PrintWriter printWriter = new PrintWriter(new FileWriter(subscribers));
+
+        String name;
+        String surname;
+        while ((name = brMaleNames.readLine()) != null) {
+            printWriter.println((maleNamesList.get(random.nextInt(maleNamesList.size()))) + " " + (maleSurnameList.get(random.nextInt(maleSurnameList.size()))));
         }
-        System.out.println(maleAndSurnameList);
+        brMaleNames.close();
+        brMaleSurnames.close();
+        printWriter.close();
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+
     }
 }
