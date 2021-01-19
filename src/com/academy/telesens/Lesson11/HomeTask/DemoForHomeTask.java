@@ -18,6 +18,8 @@ public class DemoForHomeTask {
         List<String> maleNamesList = new ArrayList<>();
         List<String> maleSurnameList = new ArrayList<>();
         Map<String, String> maleAndSurnameList = new HashMap<>();
+        String[] gender = {"Male", "Female"};
+
         Random random = new Random();
 
         try {
@@ -58,7 +60,7 @@ public class DemoForHomeTask {
         String name;
         String surname;
         while ((name = brMaleNames.readLine()) != null) {
-            printWriter.println((maleNamesList.get(random.nextInt(maleNamesList.size()))) + " " + (maleSurnameList.get(random.nextInt(maleSurnameList.size()))));
+            printWriter.println((maleNamesList.get(random.nextInt(maleNamesList.size()))) + " " + (maleSurnameList.get(random.nextInt(maleSurnameList.size()))) + ", " + (RandomAge()));
         }
         brMaleNames.close();
         brMaleSurnames.close();
@@ -69,5 +71,12 @@ public class DemoForHomeTask {
         }
 
 
+    }
+
+    public static int RandomAge (){
+        Random random = new Random();
+        int randomInt = random.nextInt(100) + 1;
+
+        return randomInt;
     }
 }
