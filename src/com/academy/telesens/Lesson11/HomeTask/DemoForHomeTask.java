@@ -19,6 +19,7 @@ public class DemoForHomeTask {
         List<String> maleSurnameList = new ArrayList<>();
         Map<String, String> maleAndSurnameList = new HashMap<>();
         String[] gender = {"Male", "Female"};
+        String[] phoneNumbers = {"38063*******", "38093*******", "38073*******"};
 
         Random random = new Random();
 
@@ -58,10 +59,13 @@ public class DemoForHomeTask {
         PrintWriter printWriter = new PrintWriter(new FileWriter(subscribers));
 
         String name;
-        String surname;
-        while ((name = brMaleNames.readLine()) != null) {
-            printWriter.println((maleNamesList.get(random.nextInt(maleNamesList.size()))) + " " + (maleSurnameList.get(random.nextInt(maleSurnameList.size()))) + ", " + (RandomAge()));
-        }
+            for (int k = 1; k < 201; k++) {
+                printWriter.println(k + ", " +(maleNamesList.get(random.nextInt(maleNamesList.size()))) + " "
+                        + (maleSurnameList.get(random.nextInt(maleSurnameList.size()))) + ", "
+                        + (RandomAge()));
+
+            }
+
         brMaleNames.close();
         brMaleSurnames.close();
         printWriter.close();
@@ -75,7 +79,7 @@ public class DemoForHomeTask {
 
     public static int RandomAge (){
         Random random = new Random();
-        int randomInt = random.nextInt(100) + 1;
+        int randomInt = random.nextInt(85) + 5;
 
         return randomInt;
     }
